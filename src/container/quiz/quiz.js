@@ -50,6 +50,8 @@ const Quiz = () => {
     if (option === quizData[currentQuestion].answer) {
       incrementScore();
       setShowResultTag(true); 
+    } else {
+      setShowResultTag(false);
     }
 
     setTimeout(nextQuestion, 1000);
