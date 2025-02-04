@@ -15,11 +15,25 @@ const quizData = [
     options: ["Berlin", "Madrid", "Paris", "Rome"],
     answer: "Paris",
   },
+
+  {
+    question: "Which of the following is a PHP framework?",
+    options: ["React", "Laravel", "ROR", "SpringBoot"],
+    answer: "Laravel",
+  },
+
+  {
+    question: "What is the capital of France?",
+    options: ["Berlin", "Madrid", "Paris", "Rome"],
+    answer: "Paris",
+  },
+
   {
     question: "What is 5 + 3?",
     options: ["5", "8", "12", "15"],
     answer: "8",
   },
+
   {
     question: "Which planet is known as the Red Planet?",
     options: ["Earth", "Mars", "Jupiter", "Venus"],
