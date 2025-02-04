@@ -1,10 +1,10 @@
 import './App.css';
-import Body from './container/body/body';
+import Quiz from './container/quiz/quiz';
 
 function App() {
   return (
     <div className="App">
-      <Body />
+      <Quiz />
     </div>
   );
 }
