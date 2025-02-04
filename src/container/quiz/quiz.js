@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { create } from "zustand";
-import { Button, Card, CardContent, Typography } from "@mui/material";
+import { Alert, Button, Card, CardContent, Typography } from "@mui/material";
 
 const useQuizStore = create((set) => ({
   score: 0,
@@ -31,6 +31,7 @@ const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [showResultTag, setShowResultTag] = useState(null);
   const [timer, setTimer] = useState(60);
   const { score, incrementScore, decrementScore, resetScore } = useQuizStore();
 
@@ -48,7 +49,9 @@ const Quiz = () => {
     setSelectedAnswer(option);
     if (option === quizData[currentQuestion].answer) {
       incrementScore();
+      setShowResultTag(true); 
     }
+
     setTimeout(nextQuestion, 1000);
   };
 
@@ -83,9 +86,18 @@ const Quiz = () => {
   return (
     <div className="flex flex-col items-center">
       <Typography variant="h4" gutterBottom>Quiz App</Typography>
-      <Card sx={{ width: 400, p: 2, textAlign: 'center' }}>
+      <Card sx={{ width: 400, p: 2, textAlign: 'center', margin: 'auto' }}>
         <Typography variant="h6">{quizData[currentQuestion].question}</Typography>
         <Typography variant="body2" color="text.secondary">Time left: {timer}s</Typography>
+
+        {
+          selectedAnswer && (showResultTag ? (
+            <Alert severity={'success'}>Right</Alert>
+          ) : (
+            <Alert severity={'error'}>False</Alert> 
+          ))
+        }
+
         <CardContent>
           {quizData[currentQuestion].options.map((option) => (
             <Button
