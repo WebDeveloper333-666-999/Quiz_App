@@ -12,7 +12,7 @@ const useQuizStore = create((set) => ({
 const quizData = [
   {
     question: "What is the capital of France?",
-    options: ["Berlin", "Madrid", "Paris", "Rome"],
+    options: ["Berlin", "Madrid", "Paris", "Rome",  "Moscow"],
     answer: "Paris",
   },
 
